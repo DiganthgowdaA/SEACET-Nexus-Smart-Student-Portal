@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Explorer — SEACET Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div id="loader" class="loader-overlay" role="status" aria-live="polite"></div>
+    <div class="blob-container" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+    <nav id="navbar" class="navbar glass"><div class="nav-container"><a href="../index.html" class="nav-logo"><svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="url(#lg)"/><text x="18" y="23" text-anchor="middle" fill="white" font-size="14" font-weight="800" font-family="Inter">SN</text><defs><linearGradient id="lg" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#1a73e8"/><stop offset="100%" stop-color="#4285f4"/></linearGradient></defs></svg><span class="logo-text">SEACET <span class="logo-accent">Nexus</span></span></a><div class="nav-links" id="navLinks"><a href="../index.html" class="nav-link">Home</a><a href="dashboard.html" class="nav-link">Dashboard</a><a href="placements.html" class="nav-link">Placements</a><a href="events.html" class="nav-link">Events</a><a href="notes.html" class="nav-link">Notes</a><a href="clubs.html" class="nav-link">Clubs</a><a href="faculty.html" class="nav-link">Faculty</a><a href="planner.html" class="nav-link">Planner</a></div><div class="nav-actions"><button class="nav-icon-btn" id="themeToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-moon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></div></nav>
+    <main>
+        <section class="page-hero"><h1 class="reveal"><span>Campus Explorer</span></h1><p class="reveal">Navigate the SEACET campus — tap on any building to learn more</p></section>
+        <section class="section" style="padding-top:0"><div class="container">
+            <div class="campus-map-container reveal">
+                <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;border-radius:var(--radius-lg)">
+                    <!-- Background -->
+                    <rect width="800" height="520" rx="16" fill="#e8f5e9"/>
+                    <!-- Paths -->
+                    <rect x="380" y="60" width="40" height="400" rx="4" fill="#e0e0e0"/>
+                    <rect x="100" y="240" width="600" height="30" rx="4" fill="#e0e0e0"/>
+                    <rect x="100" y="380" width="600" height="20" rx="4" fill="#e0e0e0"/>
+                    <!-- Buildings -->
+                    <g class="building" data-building="gate" style="cursor:pointer"><rect x="350" y="470" width="100" height="35" rx="6" fill="#616161"/><text x="400" y="492" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">MAIN GATE</text></g>
+                    <g class="building" data-building="admin" style="cursor:pointer"><rect x="330" y="400" width="140" height="55" rx="8" fill="#1565c0"/><text x="400" y="432" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">ADMIN BLOCK</text></g>
+                    <g class="building" data-building="main" style="cursor:pointer"><rect x="280" y="160" width="240" height="70" rx="10" fill="#1a73e8"/><text x="400" y="200" text-anchor="middle" fill="white" font-size="14" font-weight="800" font-family="Inter">MAIN BLOCK</text></g>
+                    <g class="building" data-building="cse" style="cursor:pointer"><rect x="60" y="70" width="160" height="60" rx="8" fill="#1976d2"/><text x="140" y="105" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">CSE BLOCK</text></g>
+                    <g class="building" data-building="ece" style="cursor:pointer"><rect x="580" y="70" width="160" height="60" rx="8" fill="#c62828"/><text x="660" y="105" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">ECE BLOCK</text></g>
+                    <g class="building" data-building="library" style="cursor:pointer"><rect x="60" y="180" width="140" height="80" rx="8" fill="#2e7d32"/><text x="130" y="225" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">LIBRARY</text></g>
+                    <g class="building" data-building="canteen" style="cursor:pointer"><rect x="60" y="400" width="130" height="50" rx="8" fill="#e65100"/><text x="125" y="430" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">CANTEEN</text></g>
+                    <g class="building" data-building="auditorium" style="cursor:pointer"><rect x="300" y="290" width="200" height="55" rx="8" fill="#6a1b9a"/><text x="400" y="322" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">AUDITORIUM</text></g>
+                    <g class="building" data-building="hostel" style="cursor:pointer"><rect x="600" y="190" width="140" height="70" rx="8" fill="#00838f"/><text x="670" y="230" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">HOSTEL</text></g>
+                    <g class="building" data-building="sports" style="cursor:pointer"><ellipse cx="660" cy="430" rx="90" ry="50" fill="#43a047"/><text x="660" y="435" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">SPORTS</text></g>
+                    <g class="building" data-building="labs" style="cursor:pointer"><rect x="300" y="70" width="160" height="55" rx="8" fill="#0097a7"/><text x="380" y="103" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Inter">LABS BLOCK</text></g>
+                    <g class="building" data-building="parking" style="cursor:pointer"><rect x="200" y="470" width="120" height="30" rx="6" fill="#78909c"/><text x="260" y="490" text-anchor="middle" fill="white" font-size="11" font-weight="600" font-family="Inter">PARKING</text></g>
+                    <!-- Trees -->
+                    <circle cx="50" cy="340" r="12" fill="#66bb6a"/><circle cx="750" cy="340" r="12" fill="#66bb6a"/><circle cx="550" cy="150" r="10" fill="#66bb6a"/><circle cx="250" cy="150" r="10" fill="#66bb6a"/><circle cx="50" cy="470" r="10" fill="#66bb6a"/><circle cx="750" cy="470" r="10" fill="#66bb6a"/>
+                </svg>
+            </div>
+            <!-- Building Grid -->
+            <div class="grid-3 reveal stagger" style="margin-top:var(--space-8)" id="buildingGrid">
+                <div class="stat-card" style="cursor:pointer" onclick="showBuilding('main')"><div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="stat-number" style="font-size:var(--font-size-base)">Main Block</div><div class="stat-label">4 Floors • Classrooms</div></div>
+                <div class="stat-card" style="cursor:pointer" onclick="showBuilding('library')"><div class="stat-icon" style="background:var(--success-bg);color:var(--success)">📚</div><div class="stat-number" style="font-size:var(--font-size-base)">Library</div><div class="stat-label">3 Floors • 25,000+ Books</div></div>
+                <div class="stat-card" style="cursor:pointer" onclick="showBuilding('labs')"><div class="stat-icon" style="background:rgba(6,182,212,0.1);color:#06b6d4">💻</div><div class="stat-number" style="font-size:var(--font-size-base)">Labs Block</div><div class="stat-label">6 Labs • 300+ PCs</div></div>
+                <div class="stat-card" style="cursor:pointer" onclick="showBuilding('auditorium')"><div class="stat-icon" style="background:rgba(106,27,154,0.1);color:#6a1b9a">🎭</div><div class="stat-number" style="font-size:var(--font-size-base)">Auditorium</div><div class="stat-label">500 Seats • AC</div></div>
+                <div class="stat-card" style="cursor:pointer" onclick="showBuilding('canteen')"><div class="stat-icon" style="background:rgba(230,81,0,0.1);color:#e65100">🍽️</div><div class="stat-number" style="font-size:var(--font-size-base)">Canteen</div><div class="stat-label">8 AM - 6 PM</div></div>
+                <div class="stat-card" style="cursor:pointer" onclick="showBuilding('sports')"><div class="stat-icon" style="background:rgba(67,160,71,0.1);color:#43a047">⚽</div><div class="stat-number" style="font-size:var(--font-size-base)">Sports Ground</div><div class="stat-label">Cricket, Football, Athletics</div></div>
+            </div>
+        </div></section>
+    </main>
+    <!-- Building Modal -->
+    <div class="modal-overlay" id="buildingModal"><div class="modal" style="max-width:500px"><div class="modal-header"><h2 id="bldgTitle">Building</h2><button class="modal-close" onclick="document.getElementById('buildingModal').classList.remove('active')">&times;</button></div><div class="modal-body" id="bldgBody"></div></div></div>
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 SEACET Nexus</p><p>Built with ❤️</p></div></div></footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="../js/storage.js"></script><script src="../js/theme.js"></script><script src="../js/notifications.js"></script><script src="../js/robo.js"></script><script src="../js/demo.js"></script><script src="../js/spatial.js"></script><script src="../js/animations.js"></script><script src="../js/app.js"></script>
+    <script>
+    const buildings={
+        gate:{name:'Main Gate',desc:'The main entrance to SEACET campus with security checkpoint.',facilities:['24/7 Security','Visitor Registration','ID Card Verification'],hours:'Open 24 hours'},
+        admin:{name:'Admin Block',desc:'Administrative offices including Principal\'s office, Registrar, and Finance department.',facilities:['Principal\'s Office','Registrar','Finance Department','Exam Cell','Placement Office'],hours:'9:00 AM - 5:00 PM'},
+        main:{name:'Main Block',desc:'Central academic building with classrooms, seminar halls, and faculty cabins.',facilities:['40+ Classrooms','2 Seminar Halls','Faculty Rooms','Conference Room','Wi-Fi Enabled'],hours:'8:00 AM - 6:00 PM'},
+        cse:{name:'CSE Block',desc:'Computer Science and Engineering department with dedicated labs and classrooms.',facilities:['Programming Lab','AI/ML Lab','Project Lab','HOD Cabin','Smart Classrooms'],hours:'8:00 AM - 6:00 PM'},
+        ece:{name:'ECE Block',desc:'Electronics and Communication Engineering department with specialized labs.',facilities:['VLSI Lab','Communication Lab','Embedded Systems Lab','PCB Design Lab','Research Lab'],hours:'8:00 AM - 6:00 PM'},
+        library:{name:'Central Library',desc:'Three-floor library with 25,000+ books, digital resources, and reading rooms.',facilities:['25,000+ Books','Digital Library','E-Journals Access','Reading Hall (200 seats)','Reference Section','Quiet Study Zone'],hours:'8:00 AM - 8:00 PM'},
+        canteen:{name:'College Canteen',desc:'Multi-cuisine canteen serving breakfast, lunch, and snacks at affordable prices.',facilities:['South Indian Cuisine','North Indian Section','Snacks Counter','Juice Bar','Seating for 150'],hours:'8:00 AM - 6:00 PM'},
+        auditorium:{name:'Auditorium',desc:'Air-conditioned auditorium for cultural events, seminars, and conferences.',facilities:['500 Seat Capacity','AC Hall','Professional Sound System','Stage Lighting','Projector & Screen','Green Room'],hours:'By Booking'},
+        hostel:{name:'Student Hostel',desc:'Separate boys and girls hostels with modern amenities and mess facility.',facilities:['200 Room Capacity','Wi-Fi','Mess Facility','Recreation Room','Laundry','24/7 Security'],hours:'In/Out: 6 AM - 10 PM'},
+        sports:{name:'Sports Ground',desc:'Multi-sport facility with cricket ground, football field, and athletic track.',facilities:['Cricket Ground','Football Field','Basketball Court','Badminton Courts','Athletic Track','Indoor Games Room'],hours:'6:00 AM - 7:00 PM'},
+        labs:{name:'Labs Block',desc:'Dedicated block housing 6+ computer labs with 300+ workstations.',facilities:['6 Computer Labs','300+ Workstations','High-Speed Internet','AC Labs','Dedicated Servers','Project Room'],hours:'8:00 AM - 6:00 PM'},
+        parking:{name:'Parking Area',desc:'Designated parking for students, faculty, and visitors.',facilities:['Two-Wheeler Parking','Four-Wheeler Parking','Covered Section','CCTV Surveillance'],hours:'Open during college hours'}
+    };
+    function showBuilding(key){
+        const b=buildings[key];if(!b)return;
+        document.getElementById('bldgTitle').textContent=b.name;
+        document.getElementById('bldgBody').innerHTML=`<p style="color:var(--text-secondary);margin-bottom:var(--space-4)">${b.desc}</p><h4 style="font-size:var(--font-size-sm);font-weight:600;margin-bottom:var(--space-2)">Facilities:</h4><ul style="list-style:none;padding:0;margin-bottom:var(--space-4)">${b.facilities.map(f=>`<li style="padding:6px 0;font-size:var(--font-size-sm);display:flex;align-items:center;gap:8px"><span style="color:var(--success)">✓</span>${f}</li>`).join('')}</ul><div style="display:flex;align-items:center;gap:8px;padding:var(--space-3);background:var(--bg-secondary);border-radius:var(--radius-md)"><span style="font-weight:600;font-size:var(--font-size-sm)">🕐 Hours:</span><span style="font-size:var(--font-size-sm);color:var(--text-secondary)">${b.hours}</span></div>`;
+        document.getElementById('buildingModal').classList.add('active');
+    }
+    document.querySelectorAll('.building').forEach(el=>{el.addEventListener('click',()=>showBuilding(el.dataset.building));});
+    </script>
+</body>
+</html>
