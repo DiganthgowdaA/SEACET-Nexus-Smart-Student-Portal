@@ -1,8 +1,8 @@
 # SEACET-Nexus-Smart-Student-Portal
 
 
-<img width="400" height="400" alt="Screenshot 2026-07-17 194728" src="https://github.com/user-attachments/assets/e9f81eda-86f3-48d6-ac8b-0aa278ebbb51" />
-<img width="400" height="400" alt="Screenshot 2026-07-17 194750" src="https://github.com/user-attachments/assets/93f18875-7d58-4d13-b22a-821d1dd50b87" />
+<img width="700" height="400" alt="Screenshot 2026-07-17 194728" src="https://github.com/user-attachments/assets/e9f81eda-86f3-48d6-ac8b-0aa278ebbb51" />
+<img width="700" height="400" alt="Screenshot 2026-07-17 194750" src="https://github.com/user-attachments/assets/93f18875-7d58-4d13-b22a-821d1dd50b87" />
 
 
 🌐 SEACET Nexus – Smart Student Portal
