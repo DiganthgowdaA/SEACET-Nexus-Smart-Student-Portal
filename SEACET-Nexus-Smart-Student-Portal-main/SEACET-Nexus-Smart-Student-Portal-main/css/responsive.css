@@ -1,0 +1,169 @@
+/* ================================================
+   SEACET Nexus — Responsive Design
+   ================================================ */
+
+/* ---- 1440px and below ---- */
+@media (max-width: 1440px) {
+  .container { max-width: 1100px; }
+}
+
+/* ---- 1200px and below ---- */
+@media (max-width: 1200px) {
+  .grid-4 { grid-template-columns: repeat(3, 1fr); }
+  .quick-grid { grid-template-columns: repeat(4, 1fr); }
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+  .footer-grid > :last-child { display: none; }
+}
+
+/* ---- 1024px and below ---- */
+@media (max-width: 1024px) {
+  :root { --font-size-5xl: 2.5rem; --font-size-4xl: 2rem; }
+  .hero-spatial { grid-template-columns: 1fr; gap: var(--space-8); min-height: auto; padding-bottom: var(--space-10); }
+  .hero-spatial-visual { min-height: 320px; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .dept-grid { grid-template-columns: repeat(2, 1fr); }
+  .notice-grid { grid-template-columns: 1fr; }
+  .notice-sidebar { flex-direction: row; }
+  .notice-sidebar > * { flex: 1; }
+  .about-strip { grid-template-columns: 1fr; }
+  .info-strip-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: var(--space-6); }
+}
+
+/* ---- 768px and below (Tablet) ---- */
+@media (max-width: 768px) {
+  :root { --font-size-5xl: 2rem; --font-size-4xl: 1.75rem; --font-size-3xl: 1.5rem; }
+  .container { padding: 0 var(--space-4); }
+  .section { padding: var(--space-12) 0; }
+
+  /* Navigation */
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height); left: 0; right: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s var(--ease);
+    z-index: var(--z-dropdown);
+  }
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  .nav-link { width: 100%; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); }
+  .nav-link.active::after { display: none; }
+  .hamburger { display: flex; }
+
+  /* Grids */
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .quick-grid { grid-template-columns: repeat(3, 1fr); }
+  .bento-grid { grid-template-columns: repeat(4, 1fr); }
+  .bento-item, .bento-item.hero-tile { grid-column: span 2; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .dept-grid { grid-template-columns: repeat(2, 1fr); }
+  .info-strip-grid { grid-template-columns: 1fr 1fr; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+
+  /* Hero */
+  .hero-spatial { padding-top: calc(var(--nav-height) + var(--space-8)); }
+  .hero-spatial-visual { grid-template-columns: 1fr 1fr; min-height: 280px; }
+  .hero-title { font-size: var(--font-size-3xl); }
+  .hero-subtitle { font-size: var(--font-size-base); }
+  .hero-stats { gap: var(--space-5); flex-wrap: wrap; }
+  .hero-stat-num { font-size: var(--font-size-2xl); }
+  .bento-grid { grid-template-columns: repeat(6, 1fr); }
+  .bento-item, .bento-item.hero-tile { grid-column: span 2; }
+
+  /* Notification Panel */
+  .notif-panel { right: 8px; left: 8px; width: auto; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; gap: var(--space-2); text-align: center; }
+
+  /* Notice */
+  .notice-sidebar { flex-direction: column; }
+
+  /* About */
+  .about-strip { padding: var(--space-6); }
+
+  /* Profile */
+  .profile-header { flex-direction: column; text-align: center; }
+  .profile-avatar { margin: 0 auto; }
+
+  /* Hide on mobile */
+  .hide-mobile { display: none !important; }
+}
+
+/* ---- 480px and below (Mobile) ---- */
+@media (max-width: 480px) {
+  :root { --font-size-5xl: 1.75rem; --font-size-4xl: 1.5rem; --font-size-3xl: 1.25rem; --font-size-2xl: 1.125rem; }
+  .container { padding: 0 var(--space-3); }
+
+  .quick-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-item, .bento-item.hero-tile, .bento-item.wide { grid-column: span 1; }
+  .hero-spatial-visual { grid-template-columns: 1fr; }
+  .hero-float-card.span-2 { grid-column: span 1; }
+  .quick-card { padding: var(--space-4) var(--space-3); }
+  .quick-icon { width: 44px; height: 44px; }
+
+  .grid-4 { grid-template-columns: 1fr; }
+  .dept-grid { grid-template-columns: 1fr; }
+  .info-strip-grid { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: 1fr; }
+
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .hero-stats { flex-direction: column; gap: var(--space-4); }
+
+  .search-modal-content { width: 95%; }
+  .search-footer { display: none; }
+
+  .footer-grid { grid-template-columns: 1fr; }
+
+  .filter-row { gap: var(--space-1); }
+  .filter-btn { padding: var(--space-1) var(--space-3); font-size: var(--font-size-xs); }
+  .tabs { gap: 0; }
+  .tab-btn { padding: var(--space-2) var(--space-3); font-size: var(--font-size-xs); }
+
+  .notice-item { flex-direction: column; gap: var(--space-2); }
+  .notice-date { flex-direction: row; gap: var(--space-2); min-width: auto; height: auto; padding: var(--space-1) var(--space-3); }
+
+  .page-hero h1 { font-size: var(--font-size-2xl); }
+  .page-hero p { font-size: var(--font-size-sm); }
+
+  /* Touch-friendly targets */
+  .nav-icon-btn { width: 44px; height: 44px; }
+  .btn { min-height: 44px; }
+  .filter-btn { min-height: 36px; }
+
+  .color-picker { gap: var(--space-2); }
+  .color-dot { width: 36px; height: 36px; }
+}
+
+/* ---- Show on mobile only ---- */
+.show-mobile { display: none; }
+@media (max-width: 768px) {
+  .show-mobile { display: block; }
+}
+
+/* ---- Landscape phone ---- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { min-height: auto; padding: calc(var(--nav-height) + var(--space-6)) var(--space-4) var(--space-6); }
+}

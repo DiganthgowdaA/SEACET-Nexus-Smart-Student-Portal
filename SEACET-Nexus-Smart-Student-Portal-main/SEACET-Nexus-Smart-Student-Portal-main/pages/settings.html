@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings — SEACET Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div id="loader" class="loader-overlay" role="status" aria-live="polite"></div>
+    <div class="blob-container" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+    <nav id="navbar" class="navbar glass"><div class="nav-container"><a href="../index.html" class="nav-logo"><svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="url(#lg)"/><text x="18" y="23" text-anchor="middle" fill="white" font-size="14" font-weight="800" font-family="Inter">SN</text><defs><linearGradient id="lg" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#1a73e8"/><stop offset="100%" stop-color="#4285f4"/></linearGradient></defs></svg><span class="logo-text">SEACET <span class="logo-accent">Nexus</span></span></a><div class="nav-links" id="navLinks"><a href="../index.html" class="nav-link">Home</a><a href="dashboard.html" class="nav-link">Dashboard</a><a href="placements.html" class="nav-link">Placements</a><a href="events.html" class="nav-link">Events</a><a href="notes.html" class="nav-link">Notes</a><a href="clubs.html" class="nav-link">Clubs</a><a href="faculty.html" class="nav-link">Faculty</a><a href="planner.html" class="nav-link">Planner</a></div><div class="nav-actions"><button class="nav-icon-btn" id="themeToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-moon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></div></nav>
+    <main>
+        <section class="page-hero"><h1 class="reveal"><span>Settings & Preferences</span></h1><p class="reveal">Customize your SEACET Nexus experience</p></section>
+        <section class="section" style="padding-top:0"><div class="container" style="max-width:700px">
+            <!-- Appearance -->
+            <div class="settings-card reveal">
+                <h3>🎨 Appearance</h3>
+                <div class="settings-item">
+                    <div><div class="setting-label">Dark Mode</div><div class="setting-desc">Switch between light and dark themes</div></div>
+                    <label class="toggle-switch"><input type="checkbox" id="darkModeToggle"><span class="toggle-slider"></span></label>
+                </div>
+                <div class="settings-item">
+                    <div><div class="setting-label">Accent Color</div><div class="setting-desc">Choose your preferred accent color</div></div>
+                    <div class="color-picker">
+                        <div class="color-dot" data-color="blue" style="background:#1a73e8" title="Blue"></div>
+                        <div class="color-dot" data-color="purple" style="background:#8b5cf6" title="Purple"></div>
+                        <div class="color-dot" data-color="green" style="background:#34a853" title="Green"></div>
+                        <div class="color-dot" data-color="orange" style="background:#f97316" title="Orange"></div>
+                        <div class="color-dot" data-color="red" style="background:#ea4335" title="Red"></div>
+                        <div class="color-dot" data-color="pink" style="background:#ec4899" title="Pink"></div>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div><div class="setting-label">Font Size</div><div class="setting-desc">Adjust text size for readability</div></div>
+                    <div class="font-size-btns">
+                        <button class="font-size-btn" data-size="small">A<sup>−</sup></button>
+                        <button class="font-size-btn" data-size="medium">A</button>
+                        <button class="font-size-btn" data-size="large">A<sup>+</sup></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Management -->
+            <div class="settings-card reveal">
+                <h3>💾 Data Management</h3>
+                <div class="settings-item">
+                    <div><div class="setting-label">Storage Usage</div><div class="setting-desc" id="storageUsage">Calculating...</div></div>
+                </div>
+                <div class="settings-item">
+                    <div><div class="setting-label">Export Data</div><div class="setting-desc">Download a backup of all your data</div></div>
+                    <button class="btn btn-sm btn-primary" id="exportBtn">📤 Export</button>
+                </div>
+                <div class="settings-item">
+                    <div><div class="setting-label">Import Data</div><div class="setting-desc">Restore from a backup file</div></div>
+                    <div><input type="file" id="importFile" accept=".json" style="display:none"><button class="btn btn-sm btn-ghost" onclick="document.getElementById('importFile').click()">📥 Import</button></div>
+                </div>
+                <div class="settings-item" style="border-bottom:none">
+                    <div><div class="setting-label" style="color:var(--error)">Clear All Data</div><div class="setting-desc">Permanently delete all stored data</div></div>
+                    <button class="btn btn-sm" style="background:var(--error);color:white" id="clearBtn">🗑️ Clear</button>
+                </div>
+            </div>
+
+            <!-- About -->
+            <div class="settings-card reveal">
+                <h3>ℹ️ About</h3>
+                <div class="settings-item">
+                    <div class="setting-label">Version</div>
+                    <span style="font-size:var(--font-size-sm);color:var(--text-secondary);font-weight:600">1.0.0</span>
+                </div>
+                <div class="settings-item">
+                    <div class="setting-label">Technology Stack</div>
+                    <span style="font-size:var(--font-size-sm);color:var(--text-secondary)">HTML5 + CSS3 + Vanilla JS</span>
+                </div>
+                <div class="settings-item">
+                    <div class="setting-label">Data Storage</div>
+                    <span style="font-size:var(--font-size-sm);color:var(--text-secondary)">LocalStorage (Browser)</span>
+                </div>
+                <div class="settings-item" style="border-bottom:none">
+                    <div><div class="setting-label">Disclaimer</div><div class="setting-desc">This is NOT the official SEACET website. This is a student project portal built for educational purposes.</div></div>
+                </div>
+            </div>
+
+            <!-- Emergency Contacts -->
+            <div class="settings-card reveal">
+                <h3>🚨 Emergency Contacts</h3>
+                <div class="emergency-card" style="margin-bottom:var(--space-3)"><div class="emg-icon">🏥</div><div class="emg-info"><div class="emg-name">College Health Center</div><div class="emg-number">+91-80-2345-6789</div></div><a href="tel:+918023456789" class="call-btn">Call</a></div>
+                <div class="emergency-card" style="margin-bottom:var(--space-3)"><div class="emg-icon">🚔</div><div class="emg-info"><div class="emg-name">Campus Security</div><div class="emg-number">+91-80-2345-6790</div></div><a href="tel:+918023456790" class="call-btn">Call</a></div>
+                <div class="emergency-card" style="margin-bottom:var(--space-3)"><div class="emg-icon">🚑</div><div class="emg-info"><div class="emg-name">Ambulance</div><div class="emg-number">108</div></div><a href="tel:108" class="call-btn">Call</a></div>
+                <div class="emergency-card"><div class="emg-icon">🔥</div><div class="emg-info"><div class="emg-name">Fire Department</div><div class="emg-number">101</div></div><a href="tel:101" class="call-btn">Call</a></div>
+            </div>
+
+            <!-- Reset -->
+            <div class="settings-card reveal">
+                <h3>🔄 Reset</h3>
+                <div class="settings-item" style="border-bottom:none">
+                    <div><div class="setting-label">Reset All Preferences</div><div class="setting-desc">Reset theme, accent color, and font size to defaults</div></div>
+                    <button class="btn btn-sm btn-ghost" id="resetBtn">Reset</button>
+                </div>
+            </div>
+        </div></section>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 SEACET Nexus</p><p>Built with ❤️</p></div></div></footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="../js/storage.js"></script><script src="../js/theme.js"></script><script src="../js/notifications.js"></script><script src="../js/robo.js"></script><script src="../js/demo.js"></script><script src="../js/spatial.js"></script><script src="../js/animations.js"></script><script src="../js/app.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+        /* Dark mode toggle */
+        const dmToggle=document.getElementById('darkModeToggle');
+        dmToggle.checked=ThemeManager.getTheme()==='dark';
+        dmToggle.addEventListener('change',()=>{ThemeManager.toggleTheme();});
+
+        /* Accent colors */
+        const currentAccent=ThemeManager.getAccentColor();
+        document.querySelectorAll('.color-dot').forEach(dot=>{
+            if(dot.dataset.color===currentAccent)dot.classList.add('active');
+            dot.addEventListener('click',()=>{
+                document.querySelectorAll('.color-dot').forEach(d=>d.classList.remove('active'));
+                dot.classList.add('active');
+                ThemeManager.setAccentColor(dot.dataset.color);
+                NotificationManager.showToast('Accent color updated!','success');
+            });
+        });
+
+        /* Font size */
+        const currentSize=ThemeManager.getFontSize();
+        document.querySelectorAll('.font-size-btn').forEach(btn=>{
+            if(btn.dataset.size===currentSize)btn.classList.add('active');
+            btn.addEventListener('click',()=>{
+                document.querySelectorAll('.font-size-btn').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                ThemeManager.setFontSize(btn.dataset.size);
+                NotificationManager.showToast('Font size updated!','success');
+            });
+        });
+
+        /* Storage usage */
+        const usage=StorageManager.getStorageUsage();
+        document.getElementById('storageUsage').textContent=`${usage.kb} KB used across ${usage.keys} keys`;
+
+        /* Export */
+        document.getElementById('exportBtn').addEventListener('click',()=>{
+            StorageManager.exportData();
+            NotificationManager.showToast('Data exported successfully!','success');
+        });
+
+        /* Import */
+        document.getElementById('importFile').addEventListener('change',(e)=>{
+            const file=e.target.files[0];
+            if(!file)return;
+            const reader=new FileReader();
+            reader.onload=(evt)=>{
+                if(StorageManager.importData(evt.target.result)){
+                    NotificationManager.showToast('Data imported successfully!','success');
+                    setTimeout(()=>location.reload(),1000);
+                }else{NotificationManager.showToast('Invalid backup file','error');}
+            };
+            reader.readAsText(file);
+        });
+
+        /* Clear all */
+        document.getElementById('clearBtn').addEventListener('click',()=>{
+            if(confirm('⚠️ This will permanently delete ALL your data including tasks, profile, internships, and preferences. Are you sure?')){
+                StorageManager.clear();
+                NotificationManager.showToast('All data cleared','error');
+                setTimeout(()=>location.reload(),1000);
+            }
+        });
+
+        /* Reset preferences */
+        document.getElementById('resetBtn').addEventListener('click',()=>{
+            ThemeManager.resetPreferences();
+            dmToggle.checked=false;
+            document.querySelectorAll('.color-dot').forEach(d=>d.classList.remove('active'));
+            document.querySelector('.color-dot[data-color="blue"]').classList.add('active');
+            document.querySelectorAll('.font-size-btn').forEach(b=>b.classList.remove('active'));
+            document.querySelector('.font-size-btn[data-size="medium"]').classList.add('active');
+            NotificationManager.showToast('Preferences reset to defaults','info');
+        });
+    });
+    </script>
+</body>
+</html>

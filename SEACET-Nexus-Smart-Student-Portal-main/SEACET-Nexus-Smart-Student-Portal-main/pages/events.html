@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events — SEACET Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div id="loader" class="loader-overlay" role="status" aria-live="polite"></div>
+    <div class="blob-container" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+    <nav id="navbar" class="navbar glass"><div class="nav-container"><a href="../index.html" class="nav-logo"><svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="url(#lg)"/><text x="18" y="23" text-anchor="middle" fill="white" font-size="14" font-weight="800" font-family="Inter">SN</text><defs><linearGradient id="lg" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#1a73e8"/><stop offset="100%" stop-color="#4285f4"/></linearGradient></defs></svg><span class="logo-text">SEACET <span class="logo-accent">Nexus</span></span></a><div class="nav-links" id="navLinks"><a href="../index.html" class="nav-link">Home</a><a href="dashboard.html" class="nav-link">Dashboard</a><a href="placements.html" class="nav-link">Placements</a><a href="events.html" class="nav-link active">Events</a><a href="notes.html" class="nav-link">Notes</a><a href="clubs.html" class="nav-link">Clubs</a><a href="faculty.html" class="nav-link">Faculty</a><a href="planner.html" class="nav-link">Planner</a></div><div class="nav-actions"><button class="nav-icon-btn" id="themeToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-moon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></div></nav>
+
+    <main>
+        <section class="page-hero"><h1 class="reveal"><span>Events & Happenings</span></h1><p class="reveal">Workshops, hackathons, seminars, and competitions at SEACET</p></section>
+        <section class="section" style="padding-top:0"><div class="container">
+            <div class="filter-row reveal" style="margin-bottom:var(--space-8)">
+                <button class="filter-btn active" data-evt="all">All</button>
+                <button class="filter-btn" data-evt="upcoming">Upcoming</button>
+                <button class="filter-btn" data-evt="past">Past</button>
+                <button class="filter-btn" data-evt="workshop">Workshop</button>
+                <button class="filter-btn" data-evt="hackathon">Hackathon</button>
+                <button class="filter-btn" data-evt="seminar">Seminar</button>
+                <button class="filter-btn" data-evt="competition">Competition</button>
+            </div>
+            <div class="timeline reveal" id="eventTimeline">
+                <div class="timeline-item" data-type="hackathon" data-status="upcoming"><div class="timeline-dot" style="background:#ea4335"></div><div class="timeline-card event-card"><div class="event-header"><h3 class="event-title">Hackathon 2026</h3><span class="badge badge-danger">Hackathon</span></div><div class="event-info"><span class="event-info-item">📅 Aug 5-6, 2026</span><span class="event-info-item">📍 CSE Department</span></div><p class="event-desc">24-hour coding challenge! Theme: Sustainable Tech. Build solutions for real-world environmental problems. Teams of 2-4 members. Prizes worth ₹50,000.</p><div class="event-footer"><span class="event-countdown" data-deadline="2026-08-05">Loading...</span><span class="badge badge-success">Upcoming</span></div></div></div>
+
+                <div class="timeline-item" data-type="workshop" data-status="upcoming"><div class="timeline-dot" style="background:#1a73e8"></div><div class="timeline-card event-card"><div class="event-header"><h3 class="event-title">Cloud Computing Workshop — AWS</h3><span class="badge badge-info">Workshop</span></div><div class="event-info"><span class="event-info-item">📅 Jul 22-23, 2026</span><span class="event-info-item">📍 ISE Department</span></div><p class="event-desc">2-day hands-on workshop on AWS services — EC2, S3, Lambda, RDS. Conducted by certified AWS professionals. Get a certificate of participation.</p><div class="event-footer"><span class="event-countdown" data-deadline="2026-07-22">Loading...</span><span class="badge badge-success">Upcoming</span></div></div></div>
+
+                <div class="timeline-item" data-type="event" data-status="upcoming"><div class="timeline-dot" style="background:#34a853"></div><div class="timeline-card event-card"><div class="event-header"><h3 class="event-title">NSS Blood Donation Camp</h3><span class="badge badge-success">Event</span></div><div class="event-info"><span class="event-info-item">📅 Jul 28, 2026</span><span class="event-info-item">📍 College Auditorium</span></div><p class="event-desc">Annual blood donation drive organized by NSS unit in collaboration with Red Cross. Save lives, donate blood. Refreshments provided.</p><div class="event-footer"><span class="event-countdown" data-deadline="2026-07-28">Loading...</span><span class="badge badge-success">Upcoming</span></div></div></div>
+
+                <div class="timeline-item" data-type="competition" data-status="upcoming"><div class="timeline-dot" style="background:#fbbc04"></div><div class="timeline-card event-card"><div class="event-header"><h3 class="event-title">Cultural Fest — Reverie 2026</h3><span class="badge badge-warning">Competition</span></div><div class="event-info"><span class="event-info-item">📅 Aug 15-17, 2026</span><span class="event-info-item">📍 Entire Campus</span></div><p class="event-desc">SEACET's annual cultural extravaganza! Music, dance, drama, fashion show, art exhibitions, and inter-college competitions. Three days of celebration.</p><div class="event-footer"><span class="event-countdown" data-deadline="2026-08-15">Loading...</span><span class="badge badge-success">Upcoming</span></div></div></div>
+
+                <div class="timeline-item" data-type="competition" data-status="upcoming"><div class="timeline-dot" style="background:#f97316"></div><div class="timeline-card event-card"><div class="event-header"><h3 class="event-title">Sports Day 2026</h3><span class="badge badge-warning">Competition</span></div><div class="event-info"><span class="event-info-item">📅 Aug 22, 2026</span><span class="event-info-item">📍 College Ground</span></div><p class="event-desc">Inter-department athletics meet. Track & field, cricket, football, basketball, badminton, table tennis. Medals for top 3 in each event.</p><div class="event-footer"><span class="event-countdown" data-deadline="2026-08-22">Loading...</span><span class="badge badge-success">Upcoming</span></div></div></div>
+
+                <div class="timeline-item" data-type="seminar" data-status="upcoming"><div class="timeline-dot" style="background:#8b5cf6"></div><div class="timeline-card event-card"><div class="event-header"><h3 class="event-title">IEEE Tech Talk — Quantum Computing</h3><span class="badge" style="background:rgba(139,92,246,0.1);color:#8b5cf6">Seminar</span></div><div class="event-info"><span class="event-info-item">📅 Aug 28, 2026</span><span class="event-info-item">📍 Seminar Hall</span></div><p class="event-desc">Guest lecture on Quantum Computing by Dr. Ramesh from IISc Bangalore. Learn about qubits, quantum gates, and the future of computing.</p><div class="event-footer"><span class="event-countdown" data-deadline="2026-08-28">Loading...</span><span class="badge badge-success">Upcoming</span></div></div></div>
+
+                <div class="timeline-item" data-type="workshop" data-status="upcoming"><div class="timeline-dot" style="background:#06b6d4"></div><div class="timeline-card event-card"><div class="event-header"><h3 class="event-title">Flutter Development Workshop</h3><span class="badge badge-info">Workshop</span></div><div class="event-info"><span class="event-info-item">📅 Sep 3-4, 2026</span><span class="event-info-item">📍 CS Lab 3</span></div><p class="event-desc">Build your first cross-platform mobile app with Flutter & Dart. Hands-on sessions covering widgets, state management, and Firebase integration.</p><div class="event-footer"><span class="event-countdown" data-deadline="2026-09-03">Loading...</span><span class="badge badge-success">Upcoming</span></div></div></div>
+
+                <div class="timeline-item" data-type="event" data-status="past"><div class="timeline-dot" style="background:var(--text-tertiary)"></div><div class="timeline-card event-card" style="opacity:0.7"><div class="event-header"><h3 class="event-title">Alumni Meet 2026</h3><span class="badge badge-info">Event</span></div><div class="event-info"><span class="event-info-item">📅 Jul 10, 2026</span><span class="event-info-item">📍 Auditorium</span></div><p class="event-desc">Annual alumni reunion. Distinguished alumni shared their industry experiences and career advice with current students.</p><div class="event-footer"><span class="badge" style="background:var(--bg-tertiary);color:var(--text-tertiary)">Completed</span></div></div></div>
+
+                <div class="timeline-item" data-type="workshop" data-status="past"><div class="timeline-dot" style="background:var(--text-tertiary)"></div><div class="timeline-card event-card" style="opacity:0.7"><div class="event-header"><h3 class="event-title">Python Bootcamp</h3><span class="badge badge-info">Workshop</span></div><div class="event-info"><span class="event-info-item">📅 Jun 20-22, 2026</span><span class="event-info-item">📍 CS Lab 1</span></div><p class="event-desc">3-day intensive Python training covering basics, OOP, data analysis with Pandas, and web scraping. 80+ participants.</p><div class="event-footer"><span class="badge" style="background:var(--bg-tertiary);color:var(--text-tertiary)">Completed</span></div></div></div>
+
+                <div class="timeline-item" data-type="competition" data-status="past"><div class="timeline-dot" style="background:var(--text-tertiary)"></div><div class="timeline-card event-card" style="opacity:0.7"><div class="event-header"><h3 class="event-title">Intra-College Coding Contest</h3><span class="badge badge-warning">Competition</span></div><div class="event-info"><span class="event-info-item">📅 Jun 15, 2026</span><span class="event-info-item">📍 Online</span></div><p class="event-desc">LeetCode-style coding contest with 150+ participants. Problems ranged from easy to hard. Top 3 received cash prizes.</p><div class="event-footer"><span class="badge" style="background:var(--bg-tertiary);color:var(--text-tertiary)">Completed</span></div></div></div>
+            </div>
+        </div></section>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 SEACET Nexus</p><p>Built with ❤️</p></div></div></footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="../js/storage.js"></script><script src="../js/theme.js"></script><script src="../js/notifications.js"></script><script src="../js/robo.js"></script><script src="../js/demo.js"></script><script src="../js/spatial.js"></script><script src="../js/animations.js"></script><script src="../js/app.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        /* Countdown timers */
+        document.querySelectorAll('.event-countdown[data-deadline]').forEach(el => {
+            const update = () => {
+                const diff = new Date(el.dataset.deadline) - new Date();
+                if (diff <= 0) { el.textContent = 'Event passed'; return; }
+                const d = Math.floor(diff/(1000*60*60*24));
+                el.textContent = d > 0 ? `${d} days left` : `${Math.floor(diff/(1000*60*60))}h left`;
+            };
+            update(); setInterval(update, 60000);
+        });
+        /* Filter */
+        document.querySelectorAll('.filter-btn[data-evt]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const f = btn.dataset.evt;
+                document.querySelectorAll('.timeline-item').forEach(item => {
+                    const type = item.dataset.type;
+                    const status = item.dataset.status;
+                    let show = f === 'all' || type === f || status === f;
+                    item.style.display = show ? '' : 'none';
+                });
+            });
+        });
+    });
+    </script>
+</body>
+</html>
