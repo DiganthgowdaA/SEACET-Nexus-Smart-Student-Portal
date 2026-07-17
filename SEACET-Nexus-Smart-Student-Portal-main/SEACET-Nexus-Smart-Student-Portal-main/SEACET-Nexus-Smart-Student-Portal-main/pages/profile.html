@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile — SEACET Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div id="loader" class="loader-overlay" role="status" aria-live="polite"></div>
+    <div class="blob-container" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+    <nav id="navbar" class="navbar glass"><div class="nav-container"><a href="../index.html" class="nav-logo"><svg width="36" height="36" viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="url(#lg)"/><text x="18" y="23" text-anchor="middle" fill="white" font-size="14" font-weight="800" font-family="Inter">SN</text><defs><linearGradient id="lg" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#1a73e8"/><stop offset="100%" stop-color="#4285f4"/></linearGradient></defs></svg><span class="logo-text">SEACET <span class="logo-accent">Nexus</span></span></a><div class="nav-links" id="navLinks"><a href="../index.html" class="nav-link">Home</a><a href="dashboard.html" class="nav-link">Dashboard</a><a href="placements.html" class="nav-link">Placements</a><a href="events.html" class="nav-link">Events</a><a href="notes.html" class="nav-link">Notes</a><a href="clubs.html" class="nav-link">Clubs</a><a href="faculty.html" class="nav-link">Faculty</a><a href="planner.html" class="nav-link">Planner</a></div><div class="nav-actions"><button class="nav-icon-btn" id="themeToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-moon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></div></nav>
+    <main class="page-content">
+        <section class="section" style="padding-top:calc(var(--nav-height) + var(--space-8))"><div class="container" style="max-width:800px">
+            <!-- Profile Header -->
+            <div class="profile-header reveal">
+                <div class="profile-avatar" id="profileAvatar">SN</div>
+                <div class="profile-info">
+                    <div class="form-group" style="margin-bottom:var(--space-2)"><input type="text" id="profileName" placeholder="Your Name" value="" style="font-size:var(--font-size-2xl);font-weight:800;border:none;padding:0;background:transparent"></div>
+                    <div style="display:flex;gap:var(--space-3);flex-wrap:wrap">
+                        <select id="profileDept" style="max-width:180px"><option value="CSE">CSE</option><option value="ISE">ISE</option><option value="ECE">ECE</option><option value="EEE">EEE</option><option value="AI&ML">AI & ML</option><option value="MBA">MBA</option></select>
+                        <select id="profileSem" style="max-width:150px"><option value="1">1st Semester</option><option value="2">2nd Semester</option><option value="3">3rd Semester</option><option value="4">4th Semester</option><option value="5">5th Semester</option><option value="6">6th Semester</option><option value="7">7th Semester</option><option value="8">8th Semester</option></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Info -->
+            <div class="profile-section reveal">
+                <h3>📊 Academic Information</h3>
+                <div class="form-group"><label for="profileCGPA">Current CGPA</label><input type="number" id="profileCGPA" min="0" max="10" step="0.01" placeholder="e.g. 8.50"></div>
+                <div class="form-group"><label for="profileUSN">USN</label><input type="text" id="profileUSN" placeholder="e.g. 1SE23CS001"></div>
+                <div class="form-group"><label for="profileEmail">Email</label><input type="email" id="profileEmail" placeholder="your.email@seacet.edu.in"></div>
+                <div class="form-group"><label for="profilePhone">Phone</label><input type="tel" id="profilePhone" placeholder="+91-9876543210"></div>
+            </div>
+
+            <!-- Skills -->
+            <div class="profile-section reveal">
+                <h3>💡 Skills</h3>
+                <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-4)">
+                    <input type="text" id="skillInput" placeholder="Add a skill..." style="flex:1">
+                    <button class="btn btn-primary" onclick="addSkill()">Add</button>
+                </div>
+                <div class="skill-tags" id="skillsList"></div>
+                <h4 style="margin-top:var(--space-6);margin-bottom:var(--space-4);font-size:var(--font-size-sm);font-weight:600;color:var(--text-secondary)">Skill Proficiency</h4>
+                <div id="skillBars">
+                    <div style="margin-bottom:var(--space-3)"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:var(--font-size-sm);font-weight:500">Java</span><span style="font-size:var(--font-size-xs);color:var(--text-tertiary)">85%</span></div><div class="progress-bar"><div class="progress-fill" data-width="85" style="width:0;background:var(--primary)"></div></div></div>
+                    <div style="margin-bottom:var(--space-3)"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:var(--font-size-sm);font-weight:500">Python</span><span style="font-size:var(--font-size-xs);color:var(--text-tertiary)">90%</span></div><div class="progress-bar"><div class="progress-fill" data-width="90" style="width:0;background:#34a853"></div></div></div>
+                    <div style="margin-bottom:var(--space-3)"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:var(--font-size-sm);font-weight:500">Web Development</span><span style="font-size:var(--font-size-xs);color:var(--text-tertiary)">75%</span></div><div class="progress-bar"><div class="progress-fill" data-width="75" style="width:0;background:#8b5cf6"></div></div></div>
+                    <div style="margin-bottom:var(--space-3)"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:var(--font-size-sm);font-weight:500">DSA</span><span style="font-size:var(--font-size-xs);color:var(--text-tertiary)">80%</span></div><div class="progress-bar"><div class="progress-fill" data-width="80" style="width:0;background:#f97316"></div></div></div>
+                    <div style="margin-bottom:var(--space-3)"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:var(--font-size-sm);font-weight:500">SQL</span><span style="font-size:var(--font-size-xs);color:var(--text-tertiary)">70%</span></div><div class="progress-bar"><div class="progress-fill" data-width="70" style="width:0;background:#06b6d4"></div></div></div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="profile-section reveal">
+                <h3>🏅 Certifications</h3>
+                <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-4)">
+                    <input type="text" id="certInput" placeholder="Add a certification..." style="flex:1">
+                    <button class="btn btn-primary" onclick="addCert()">Add</button>
+                </div>
+                <div id="certsList"></div>
+            </div>
+
+            <!-- Activity Summary -->
+            <div class="profile-section reveal">
+                <h3>📈 Activity Summary</h3>
+                <div class="stats-strip" style="margin-bottom:0">
+                    <div class="stat-card"><div class="stat-number" id="pTasks">0</div><div class="stat-label">Tasks</div></div>
+                    <div class="stat-card"><div class="stat-number" id="pNotes">0</div><div class="stat-label">Notes Saved</div></div>
+                    <div class="stat-card"><div class="stat-number" id="pClubs">0</div><div class="stat-label">Clubs</div></div>
+                    <div class="stat-card"><div class="stat-number" id="pInterns">0</div><div class="stat-label">Internships</div></div>
+                </div>
+            </div>
+
+            <!-- Save -->
+            <div class="reveal" style="text-align:center;padding:var(--space-6) 0">
+                <button class="btn btn-primary btn-lg" onclick="saveProfile()" style="min-width:200px">💾 Save Profile</button>
+            </div>
+        </div></section>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 SEACET Nexus</p><p>Built with ❤️</p></div></div></footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="../js/storage.js"></script><script src="../js/theme.js"></script><script src="../js/notifications.js"></script><script src="../js/robo.js"></script><script src="../js/demo.js"></script><script src="../js/spatial.js"></script><script src="../js/animations.js"></script><script src="../js/app.js"></script>
+    <script>
+    const PKEY='seacet_profile';
+    let profile={};
+
+    function loadProfile(){
+        profile=JSON.parse(localStorage.getItem(PKEY)||'{"name":"","dept":"CSE","sem":"5","cgpa":"","usn":"","email":"","phone":"","skills":[],"certs":[]}');
+        document.getElementById('profileName').value=profile.name||'';
+        document.getElementById('profileDept').value=profile.dept||'CSE';
+        document.getElementById('profileSem').value=profile.sem||'5';
+        document.getElementById('profileCGPA').value=profile.cgpa||'';
+        document.getElementById('profileUSN').value=profile.usn||'';
+        document.getElementById('profileEmail').value=profile.email||'';
+        document.getElementById('profilePhone').value=profile.phone||'';
+        renderSkills();renderCerts();updateAvatar();updateActivityStats();
+    }
+
+    function updateAvatar(){
+        const name=document.getElementById('profileName').value.trim();
+        const initials=name?name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2):'SN';
+        document.getElementById('profileAvatar').textContent=initials;
+    }
+    document.getElementById('profileName').addEventListener('input',updateAvatar);
+
+    function renderSkills(){
+        const el=document.getElementById('skillsList');
+        el.innerHTML=(profile.skills||[]).map((s,i)=>`<span class="skill-tag">${s}<button onclick="removeSkill(${i})" style="background:none;border:none;cursor:pointer;margin-left:6px;color:var(--text-tertiary);font-size:14px">&times;</button></span>`).join('');
+    }
+    function addSkill(){
+        const input=document.getElementById('skillInput');
+        const v=input.value.trim();
+        if(!v)return;
+        if(!profile.skills)profile.skills=[];
+        if(!profile.skills.includes(v)){profile.skills.push(v);renderSkills();}
+        input.value='';
+    }
+    function removeSkill(i){profile.skills.splice(i,1);renderSkills();}
+
+    function renderCerts(){
+        const el=document.getElementById('certsList');
+        el.innerHTML=(profile.certs||[]).map((c,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:var(--space-3);background:var(--bg-secondary);border-radius:var(--radius-md);margin-bottom:var(--space-2)"><span style="font-size:var(--font-size-sm)">🏅 ${c}</span><button onclick="removeCert(${i})" style="background:none;border:none;cursor:pointer;color:var(--error);font-size:16px">&times;</button></div>`).join('')||(el.innerHTML='<p style="color:var(--text-tertiary);font-size:var(--font-size-sm)">No certifications added yet</p>');
+    }
+    function addCert(){
+        const input=document.getElementById('certInput');
+        const v=input.value.trim();
+        if(!v)return;
+        if(!profile.certs)profile.certs=[];
+        profile.certs.push(v);renderCerts();input.value='';
+    }
+    function removeCert(i){profile.certs.splice(i,1);renderCerts();}
+
+    function updateActivityStats(){
+        const tasks=JSON.parse(localStorage.getItem('seacet_planner_tasks')||'[]');
+        const clubs=JSON.parse(localStorage.getItem('seacet_joined_clubs')||'[]');
+        const favNotes=(JSON.parse(localStorage.getItem('seacet_favorites_note')||'[]'));
+        const interns=JSON.parse(localStorage.getItem('seacet_internships')||'[]');
+        document.getElementById('pTasks').textContent=tasks.length;
+        document.getElementById('pNotes').textContent=favNotes.length;
+        document.getElementById('pClubs').textContent=clubs.length;
+        document.getElementById('pInterns').textContent=interns.length;
+    }
+
+    function saveProfile(){
+        if (typeof RoboCompanion !== 'undefined') RoboCompanion.show('Saving profile...', 'Nexus is updating your data');
+        profile.name=document.getElementById('profileName').value.trim();
+        profile.dept=document.getElementById('profileDept').value;
+        profile.sem=document.getElementById('profileSem').value;
+        profile.cgpa=document.getElementById('profileCGPA').value;
+        profile.usn=document.getElementById('profileUSN').value.trim();
+        profile.email=document.getElementById('profileEmail').value.trim();
+        profile.phone=document.getElementById('profilePhone').value.trim();
+        localStorage.setItem(PKEY,JSON.stringify(profile));
+        NotificationManager.showToast('Profile saved successfully! 🎉','success');
+        if (typeof RoboCompanion !== 'undefined') RoboCompanion.hide(300);
+    }
+
+    document.getElementById('skillInput').addEventListener('keydown',(e)=>{if(e.key==='Enter'){e.preventDefault();addSkill();}});
+    document.getElementById('certInput').addEventListener('keydown',(e)=>{if(e.key==='Enter'){e.preventDefault();addCert();}});
+    document.addEventListener('DOMContentLoaded',()=>{setTimeout(loadProfile,50);});
+    </script>
+</body>
+</html>

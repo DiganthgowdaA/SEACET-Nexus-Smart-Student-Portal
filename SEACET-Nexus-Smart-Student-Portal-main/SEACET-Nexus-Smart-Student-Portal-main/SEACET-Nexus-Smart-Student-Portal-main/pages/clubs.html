@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Clubs — SEACET Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div id="loader" class="loader-overlay" role="status" aria-live="polite"></div>
+    <div class="blob-container" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+    <nav id="navbar" class="navbar glass"><div class="nav-container">
+        
+<a href="index.html" class="nav-logo">
+                
+                <img src="sea logo.png" alt="" width="50px" height="50px">
+
+                <span class="logo-text">SEACET <span class="logo-accent">Nexus</span></span>
+            </a>        
+        
+        <div class="nav-links" id="navLinks"><a href="../index.html" class="nav-link">Home</a><a href="dashboard.html" class="nav-link">Dashboard</a><a href="placements.html" class="nav-link">Placements</a><a href="events.html" class="nav-link">Events</a><a href="notes.html" class="nav-link">Notes</a><a href="clubs.html" class="nav-link active">Clubs</a><a href="faculty.html" class="nav-link">Faculty</a><a href="planner.html" class="nav-link">Planner</a></div><div class="nav-actions"><button class="nav-icon-btn" id="themeToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-moon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></div></nav>
+    <main>
+        <section class="page-hero"><h1 class="reveal"><span>College Clubs & Chapters</span></h1><p class="reveal">Discover student communities, join clubs, and grow beyond the classroom</p></section>
+        <section class="section" style="padding-top:0"><div class="container">
+            <div class="filter-row reveal" style="margin-bottom:var(--space-8)">
+                <button class="filter-btn active" data-cat="all">All</button>
+                <button class="filter-btn" data-cat="Technical">Technical</button>
+                <button class="filter-btn" data-cat="Cultural">Cultural</button>
+                <button class="filter-btn" data-cat="Sports">Sports</button>
+                <button class="filter-btn" data-cat="Social">Social Service</button>
+            </div>
+            <div class="grid-3 reveal stagger" id="clubGrid">
+                <div class="club-card" data-category="Technical"><div class="club-icon" style="background:linear-gradient(135deg,#1a73e8,#4285f4)"><span style="font-size:24px">🔌</span></div><h3 class="club-name">IEEE Student Branch</h3><span class="badge badge-primary">Technical</span><p class="club-desc">Bridge the gap between theory and real-world applications through technical events, workshops, and paper presentations.</p><div class="club-members"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 120 members</div><div class="club-events"><div class="club-event-item">IEEE Tech Talk — Aug 28</div><div class="club-event-item">Paper Presentation — Sep 15</div></div><button class="join-btn" data-club-id="ieee">Join Club</button></div>
+
+                <div class="club-card" data-category="Technical"><div class="club-icon" style="background:linear-gradient(135deg,#34a853,#0d904f)"><span style="font-size:24px">💻</span></div><h3 class="club-name">CSI Chapter</h3><span class="badge badge-success">Technical</span><p class="club-desc">Computer Society of India chapter organizing coding contests, webinars, and skill development workshops for all branches.</p><div class="club-members"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 95 members</div><div class="club-events"><div class="club-event-item">Code Sprint — Aug 10</div><div class="club-event-item">Web Dev Workshop — Sep 5</div></div><button class="join-btn" data-club-id="csi">Join Club</button></div>
+
+                <div class="club-card" data-category="Social"><div class="club-icon" style="background:linear-gradient(135deg,#ea4335,#c5221f)"><span style="font-size:24px">🤝</span></div><h3 class="club-name">NSS Unit</h3><span class="badge badge-danger">Social Service</span><p class="club-desc">National Service Scheme promoting community service, blood donation drives, cleanliness campaigns, and rural development.</p><div class="club-members"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 200 members</div><div class="club-events"><div class="club-event-item">Blood Donation Camp — Jul 28</div><div class="club-event-item">Village Adoption — Aug 20</div></div><button class="join-btn" data-club-id="nss">Join Club</button></div>
+
+                <div class="club-card" data-category="Sports"><div class="club-icon" style="background:linear-gradient(135deg,#f97316,#ea580c)"><span style="font-size:24px">⚽</span></div><h3 class="club-name">Sports Club</h3><span class="badge badge-warning">Sports</span><p class="club-desc">Promoting physical fitness through inter-college tournaments, annual sports day, and regular practice sessions across all sports.</p><div class="club-members"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 180 members</div><div class="club-events"><div class="club-event-item">Sports Day — Aug 22</div><div class="club-event-item">Cricket Tournament — Sep 1</div></div><button class="join-btn" data-club-id="sports">Join Club</button></div>
+
+                <div class="club-card" data-category="Cultural"><div class="club-icon" style="background:linear-gradient(135deg,#ec4899,#db2777)"><span style="font-size:24px">🎭</span></div><h3 class="club-name">Cultural Committee</h3><span class="badge" style="background:rgba(236,72,153,0.1);color:#ec4899">Cultural</span><p class="club-desc">Organizing the annual cultural fest Reverie with music, dance, drama, art exhibitions, and inter-college fashion shows.</p><div class="club-members"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 150 members</div><div class="club-events"><div class="club-event-item">Reverie Fest — Aug 15-17</div><div class="club-event-item">Solo Singing — Sep 10</div></div><button class="join-btn" data-club-id="cultural">Join Club</button></div>
+
+                <div class="club-card" data-category="Cultural"><div class="club-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)"><span style="font-size:24px">📸</span></div><h3 class="club-name">Photography Club</h3><span class="badge" style="background:rgba(139,92,246,0.1);color:#8b5cf6">Cultural</span><p class="club-desc">Capturing campus life through photo walks, exhibitions, and photography workshops. Publisher of PixelPerfect monthly magazine.</p><div class="club-members"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 60 members</div><div class="club-events"><div class="club-event-item">Photo Walk — Aug 5</div><div class="club-event-item">Exhibition — Sep 20</div></div><button class="join-btn" data-club-id="photography">Join Club</button></div>
+
+                <div class="club-card" data-category="Technical"><div class="club-icon" style="background:linear-gradient(135deg,#06b6d4,#0891b2)"><span style="font-size:24px">⌨️</span></div><h3 class="club-name">Coding Club</h3><span class="badge badge-info">Technical</span><p class="club-desc">Regular competitive programming contests, DSA workshops, hackathon participation, and interview prep sessions for placements.</p><div class="club-members"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 110 members</div><div class="club-events"><div class="club-event-item">Weekly Contest — Saturdays</div><div class="club-event-item">Mock Interviews — Aug 15</div></div><button class="join-btn" data-club-id="coding">Join Club</button></div>
+
+                <div class="club-card" data-category="Technical"><div class="club-icon" style="background:linear-gradient(135deg,#fbbc04,#f29900)"><span style="font-size:24px">🤖</span></div><h3 class="club-name">Robotics Club</h3><span class="badge badge-warning">Technical</span><p class="club-desc">Building autonomous robots, drones, and IoT projects. Hosts the annual RoboWars competition and drone racing events.</p><div class="club-members"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 45 members</div><div class="club-events"><div class="club-event-item">RoboWars — Sep 10</div><div class="club-event-item">Drone Workshop — Aug 25</div></div><button class="join-btn" data-club-id="robotics">Join Club</button></div>
+            </div>
+        </div></section>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 SEACET Nexus</p><p>Built with ❤️</p></div></div></footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="../js/storage.js"></script><script src="../js/theme.js"></script><script src="../js/notifications.js"></script><script src="../js/robo.js"></script><script src="../js/demo.js"></script><script src="../js/spatial.js"></script><script src="../js/animations.js"></script><script src="../js/app.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+        document.querySelectorAll('.filter-btn[data-cat]').forEach(btn=>{btn.addEventListener('click',()=>{const f=btn.dataset.cat;document.querySelectorAll('.club-card').forEach(c=>{c.style.display=(f==='all'||c.dataset.category===f)?'':'none';});});});
+    });
+    </script>
+</body>
+</html>
