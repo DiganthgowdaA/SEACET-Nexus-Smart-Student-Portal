@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SEACET Nexus Placement Hub - Browse companies, track placement drives, and prepare for interviews">
+    <title>Placement Hub — SEACET Nexus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div id="loader" class="loader-overlay" role="status" aria-live="polite"></div>
+    <div class="blob-container" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+
+    <nav id="navbar" class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                
+                <img src="sea logo.png" alt="" width="50px" height="50px">
+
+                <span class="logo-text">SEACET <span class="logo-accent">Nexus</span></span>
+            </a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="placements.html" class="nav-link active">Placements</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="notes.html" class="nav-link">Notes</a>
+                <a href="clubs.html" class="nav-link">Clubs</a>
+                <a href="faculty.html" class="nav-link">Faculty</a>
+                <a href="planner.html" class="nav-link">Planner</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-icon-btn" id="searchToggle" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+                <button class="nav-icon-btn" id="notifToggle" aria-label="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="notif-badge" id="notifBadge">0</span></button>
+                <button class="nav-icon-btn" id="themeToggle" aria-label="Toggle theme"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-moon" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+                <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-modal" id="searchModal"><div class="search-modal-content glass"><div class="search-input-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="globalSearch" placeholder="Search everything..." autocomplete="off"><kbd>ESC</kbd></div><div class="search-results" id="searchResults"><div class="search-empty"><p>Start typing to search</p></div></div></div></div>
+    <div class="notif-panel glass" id="notifPanel"><div class="notif-header"><h3>Notifications</h3><button class="notif-clear" id="clearNotifs">Clear All</button></div><div class="notif-list" id="notifList"><div class="empty-state" style="padding:24px"><p>No notifications</p></div></div></div>
+
+    <main>
+        <section class="page-hero">
+            <h1 class="reveal"><span>Placement Hub</span></h1>
+            <p class="reveal">Track campus placement drives, explore companies, and prepare for your dream career</p>
+        </section>
+
+        <section class="section" style="padding-top:0">
+            <div class="container">
+                <!-- Search & Filter -->
+                <div class="reveal" style="margin-bottom:var(--space-6)">
+                    <input type="text" id="companySearch" placeholder="🔍 Search companies, roles, skills..." style="max-width:500px;margin-bottom:var(--space-4)">
+                    <div class="filter-row">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="it">IT</button>
+                        <button class="filter-btn" data-filter="consulting">Consulting</button>
+                        <button class="filter-btn" data-filter="product">Product</button>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-strip reveal">
+                    <div class="stat-card"><div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div class="stat-number counter" data-target="50" data-suffix="+">0</div><div class="stat-label">Companies</div></div>
+                    <div class="stat-card"><div class="stat-icon" style="background:var(--success-bg);color:var(--success)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="stat-number">12 LPA</div><div class="stat-label">Highest Package</div></div>
+                    <div class="stat-card"><div class="stat-icon" style="background:var(--warning-bg);color:#b45309"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><div class="stat-number">5.5 LPA</div><div class="stat-label">Average Package</div></div>
+                    <div class="stat-card"><div class="stat-icon" style="background:var(--error-bg);color:var(--error)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="stat-number counter" data-target="95" data-suffix="%">0</div><div class="stat-label">Placed Students</div></div>
+                </div>
+
+                <!-- Company Cards -->
+                <div class="grid-3 reveal stagger" id="companyGrid">
+                    <div class="placement-card" data-category="it" data-name="infosys"><div class="card-header"><div><h3 class="company-name">Infosys</h3><p class="role">Systems Engineer</p></div><span class="package-badge">₹4.5 LPA</span></div><p class="eligibility">Eligible: CSE, ISE | Min CGPA: 6.0</p><div class="skill-tags"><span class="skill-tag">Java</span><span class="skill-tag">SQL</span><span class="skill-tag">Aptitude</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Aug 10, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="infosys" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="it" data-name="wipro"><div class="card-header"><div><h3 class="company-name">Wipro</h3><p class="role">Project Engineer</p></div><span class="package-badge">₹3.8 LPA</span></div><p class="eligibility">Eligible: All Branches | Min CGPA: 5.5</p><div class="skill-tags"><span class="skill-tag">Communication</span><span class="skill-tag">Problem Solving</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Aug 15, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="wipro" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="it" data-name="tcs"><div class="card-header"><div><h3 class="company-name">TCS</h3><p class="role">Ninja / Digital</p></div><span class="package-badge">₹3.6 LPA</span></div><p class="eligibility">Eligible: All Branches | Min CGPA: 6.0</p><div class="skill-tags"><span class="skill-tag">Coding</span><span class="skill-tag">Aptitude</span><span class="skill-tag">Verbal</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Aug 20, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="tcs" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="it" data-name="cognizant"><div class="card-header"><div><h3 class="company-name">Cognizant</h3><p class="role">Programmer Analyst</p></div><span class="package-badge">₹4.0 LPA</span></div><p class="eligibility">Eligible: CSE, ISE, ECE | Min CGPA: 6.0</p><div class="skill-tags"><span class="skill-tag">Java</span><span class="skill-tag">Python</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Aug 25, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="cognizant" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="it" data-name="accenture"><div class="card-header"><div><h3 class="company-name">Accenture</h3><p class="role">Associate Software Engineer</p></div><span class="package-badge">₹4.5 LPA</span></div><p class="eligibility">Eligible: CSE, ISE | Min CGPA: 6.5</p><div class="skill-tags"><span class="skill-tag">Full Stack</span><span class="skill-tag">Cloud</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Sep 1, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="accenture" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="it" data-name="hcl"><div class="card-header"><div><h3 class="company-name">HCL Technologies</h3><p class="role">Software Engineer</p></div><span class="package-badge">₹4.2 LPA</span></div><p class="eligibility">Eligible: CSE, ISE | Min CGPA: 6.0</p><div class="skill-tags"><span class="skill-tag">C++</span><span class="skill-tag">Java</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Sep 5, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="hcl" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="consulting" data-name="ibm"><div class="card-header"><div><h3 class="company-name">IBM</h3><p class="role">Application Developer</p></div><span class="package-badge" style="background:linear-gradient(135deg,#34a853,#0d904f)">₹5.0 LPA</span></div><p class="eligibility">Eligible: CSE, ISE | Min CGPA: 7.0</p><div class="skill-tags"><span class="skill-tag">Cloud</span><span class="skill-tag">AI</span><span class="skill-tag">Python</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Sep 10, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="ibm" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="consulting" data-name="deloitte"><div class="card-header"><div><h3 class="company-name">Deloitte</h3><p class="role">Analyst</p></div><span class="package-badge" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">₹7.5 LPA</span></div><p class="eligibility">Eligible: CSE, ISE | Min CGPA: 7.5</p><div class="skill-tags"><span class="skill-tag">Consulting</span><span class="skill-tag">Data</span><span class="skill-tag">Analytics</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Sep 15, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="deloitte" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="product" data-name="amazon"><div class="card-header"><div><h3 class="company-name">Amazon</h3><p class="role">SDE-I</p></div><span class="package-badge" style="background:linear-gradient(135deg,#ea4335,#c5221f)">₹12 LPA</span></div><p class="eligibility">Eligible: CSE | Min CGPA: 8.0</p><div class="skill-tags"><span class="skill-tag">DSA</span><span class="skill-tag">System Design</span><span class="skill-tag">Java</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Oct 1, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="amazon" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="product" data-name="microsoft"><div class="card-header"><div><h3 class="company-name">Microsoft</h3><p class="role">Software Engineer</p></div><span class="package-badge" style="background:linear-gradient(135deg,#ea4335,#c5221f)">₹11 LPA</span></div><p class="eligibility">Eligible: CSE | Min CGPA: 8.0</p><div class="skill-tags"><span class="skill-tag">Algorithms</span><span class="skill-tag">C++</span><span class="skill-tag">Azure</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Oct 5, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="microsoft" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="it" data-name="capgemini"><div class="card-header"><div><h3 class="company-name">Capgemini</h3><p class="role">Analyst</p></div><span class="package-badge">₹4.0 LPA</span></div><p class="eligibility">Eligible: All Branches | Min CGPA: 5.5</p><div class="skill-tags"><span class="skill-tag">SQL</span><span class="skill-tag">Excel</span><span class="skill-tag">Analytics</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Sep 20, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="capgemini" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+
+                    <div class="placement-card" data-category="it" data-name="mphasis"><div class="card-header"><div><h3 class="company-name">Mphasis</h3><p class="role">Associate Engineer</p></div><span class="package-badge">₹3.8 LPA</span></div><p class="eligibility">Eligible: CSE, ISE, ECE | Min CGPA: 6.0</p><div class="skill-tags"><span class="skill-tag">Web Dev</span><span class="skill-tag">Testing</span></div><div class="card-footer"><span class="deadline">📅 Deadline: Sep 25, 2026</span><button class="fav-btn" data-fav-type="company" data-fav-id="mphasis" aria-label="Favorite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div></div>
+                </div>
+
+                <!-- Interview Tips -->
+                <div class="reveal" style="margin-top:var(--space-12)">
+                    <h2 class="section-title" style="text-align:left;font-size:var(--font-size-2xl);margin-bottom:var(--space-6)">💡 Interview Tips</h2>
+                    <div class="accordion-item"><div class="accordion-header"><span>📝 Resume Tips</span><svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="accordion-body"><div class="accordion-content">Keep your resume to one page. Highlight projects, internships, and skills relevant to the role. Use action verbs and quantify achievements. Include your CGPA, technical skills, and links to GitHub/LinkedIn. Proofread carefully for grammar and formatting.</div></div></div>
+                    <div class="accordion-item"><div class="accordion-header"><span>🧮 Aptitude Preparation</span><svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="accordion-body"><div class="accordion-content">Practice quantitative aptitude, logical reasoning, and verbal ability daily. Use platforms like IndiaBix, PrepInsta, and GeeksforGeeks. Focus on speed and accuracy. Most IT companies have aptitude as the first round - clearing this is crucial.</div></div></div>
+                    <div class="accordion-item"><div class="accordion-header"><span>💻 Technical Round</span><svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="accordion-body"><div class="accordion-content">Master Data Structures & Algorithms — arrays, linked lists, trees, graphs, dynamic programming. Practice on LeetCode (aim for 200+ problems). Understand OOP concepts, DBMS, OS, and CN fundamentals. Be ready to code on a whiteboard or shared editor.</div></div></div>
+                    <div class="accordion-item"><div class="accordion-header"><span>🤝 HR Round</span><svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="accordion-body"><div class="accordion-content">Prepare your introduction, strengths/weaknesses, and "Why this company?" Research the company culture and recent news. Be honest, confident, and show enthusiasm. Prepare examples using the STAR method (Situation, Task, Action, Result).</div></div></div>
+                    <div class="accordion-item"><div class="accordion-header"><span>👥 Group Discussion</span><svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="accordion-body"><div class="accordion-content">Stay updated on current affairs, technology trends, and social issues. Speak confidently but don't dominate. Listen to others and build on their points. Make eye contact, use structured arguments, and conclude effectively.</div></div></div>
+                    <div class="accordion-item"><div class="accordion-header"><span>🏆 Coding Interview</span><svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="accordion-body"><div class="accordion-content">Think aloud during the interview. Clarify the problem before coding. Start with brute force, then optimize. Discuss time and space complexity. Test your code with edge cases. Practice mock interviews on Pramp or InterviewBit.</div></div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 SEACET Nexus — Smart Student Portal</p><p>Built with ❤️ using HTML, CSS & JavaScript</p></div></div></footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../js/storage.js"></script><script src="../js/theme.js"></script><script src="../js/notifications.js"></script><script src="../js/search.js"></script><script src="../js/counter.js"></script><script src="../js/robo.js"></script><script src="../js/demo.js"></script><script src="../js/spatial.js"></script><script src="../js/animations.js"></script><script src="../js/app.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const search = document.getElementById('companySearch');
+        const grid = document.getElementById('companyGrid');
+        if (search && grid) {
+            search.addEventListener('input', () => {
+                const q = search.value.toLowerCase();
+                grid.querySelectorAll('.placement-card').forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    card.style.display = text.includes(q) ? '' : 'none';
+                });
+            });
+        }
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                grid.querySelectorAll('.placement-card').forEach(card => {
+                    card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+                });
+            });
+        });
+    });
+    </script>
+</body>
+</html>
