@@ -1,0 +1,319 @@
+/* ================================================
+   SEACET Nexus — Robo Companion
+   ================================================ */
+
+/* ---- Loader Overlay ---- */
+.loader-overlay {
+  background: radial-gradient(ellipse at center, rgba(26,115,232,0.08) 0%, var(--bg-primary) 70%);
+}
+
+[data-theme="dark"] .loader-overlay {
+  background: radial-gradient(ellipse at center, rgba(26,115,232,0.12) 0%, #0b0e14 70%);
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.loader-robo-wrap {
+  position: relative;
+  width: 140px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-robo-wrap .robo-pulse-ring {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid rgba(26, 115, 232, 0.25);
+  animation: roboPulseRing 2s ease-out infinite;
+}
+
+.loader-robo-wrap .robo-pulse-ring:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+@keyframes roboPulseRing {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ---- Robo SVG Animations ---- */
+.robo-companion {
+  display: block;
+  filter: drop-shadow(0 12px 32px rgba(26, 115, 232, 0.2));
+}
+
+.robo-companion.robo-loading {
+  animation: roboFloat 2.5s ease-in-out infinite;
+}
+
+.robo-companion.robo-hero {
+  animation: roboFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 20px 48px rgba(26, 115, 232, 0.25));
+}
+
+@keyframes roboFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.robo-arm-wave {
+  transform-origin: 58px 108px;
+  animation: roboWave 1.8s ease-in-out infinite;
+}
+
+@keyframes roboWave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-18deg); }
+  75% { transform: rotate(8deg); }
+}
+
+.robo-eye {
+  animation: roboEyeBlink 4s ease-in-out infinite;
+}
+
+@keyframes roboEyeBlink {
+  0%, 42%, 44%, 100% { opacity: 1; }
+  43% { opacity: 0.3; }
+}
+
+.robo-core {
+  animation: roboCorePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes roboCorePulse {
+  0%, 100% { opacity: 0.7; r: 5; }
+  50% { opacity: 1; filter: brightness(1.3); }
+}
+
+.robo-scan-line {
+  animation: roboScan 2s linear infinite;
+}
+
+@keyframes roboScan {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(18px); opacity: 0; }
+}
+
+.robo-dot-loader {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.robo-dot-loader span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: roboDotBounce 1.2s ease-in-out infinite;
+}
+
+.robo-dot-loader span:nth-child(2) { animation-delay: 0.15s; }
+.robo-dot-loader span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes roboDotBounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-8px); opacity: 1; }
+}
+
+.loader-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.loader-text-sub {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  margin-top: -8px;
+}
+
+/* ---- Hero Companion ---- */
+.hero-robo-companion {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 420px;
+  width: 100%;
+}
+
+.hero-robo-stage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-5);
+}
+
+.hero-robo-figure {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: min(250px, 44vw);
+  line-height: 0;
+}
+
+.hero-robo-img {
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+  object-fit: contain;
+  animation: roboFloat 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(26, 115, 232, 0.28));
+  pointer-events: none;
+  user-select: none;
+  display: block;
+  background: transparent;
+}
+
+.hero-robo-glow {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,115,232,0.22), transparent 70%);
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  animation: roboGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes roboGlowPulse {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+  50% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+}
+
+.hero-robo-speech {
+  position: relative;
+  flex: 0 1 210px;
+  min-width: 0;
+  max-width: 210px;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+  align-self: center;
+  animation: speechPop 0.6s var(--ease-spring) 0.8s both, speechBobSide 3s ease-in-out 1.4s infinite;
+  z-index: 2;
+}
+
+.hero-robo-speech::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -7px;
+  width: 14px;
+  height: 14px;
+  background: var(--glass-bg-strong);
+  border-right: 1px solid var(--glass-border);
+  border-top: 1px solid var(--glass-border);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+@keyframes speechPop {
+  from { opacity: 0; transform: scale(0.8) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes speechBobSide {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.hero-robo-widgets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-4);
+}
+
+.hero-robo-widgets .hero-float-card {
+  min-height: auto;
+  padding: var(--space-3) var(--space-4);
+}
+
+/* ---- Inline page loader (mini) ---- */
+.robo-inline-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+  gap: var(--space-4);
+}
+
+.robo-inline-loader .robo-companion {
+  width: 80px;
+  height: auto;
+}
+
+/* ---- Global overlay reuse ---- */
+#roboLoader.loader-overlay.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#roboLoader.loader-overlay:not(.active):not(.hidden) {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .hero-robo-companion { min-height: auto; }
+  .hero-robo-stage {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-left: 0;
+    max-width: 100%;
+    gap: var(--space-3);
+  }
+  .hero-robo-figure { width: min(200px, 70vw); }
+  .hero-robo-speech {
+    flex: none;
+    max-width: 280px;
+    text-align: center;
+    animation: speechPop 0.6s var(--ease-spring) 0.8s both, speechBobSide 3s ease-in-out 1.4s infinite;
+  }
+  .hero-robo-speech::after {
+    top: auto;
+    bottom: -7px;
+    right: 50%;
+    left: auto;
+    transform: translateX(50%) rotate(45deg);
+    border-right: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    border-top: none;
+  }
+  .hero-robo-widgets { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robo-companion, .robo-arm-wave, .robo-eye, .robo-core,
+  .hero-robo-img, .hero-robo-speech, .robo-pulse-ring { animation: none !important; }
+}
